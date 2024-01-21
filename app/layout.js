@@ -15,6 +15,10 @@ export default function RootLayout({ children }) {
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap"
       />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Rubik+Pixels&display=swap"
+      />
       <body className={inter.className} style={{ backgroundColor: "#35006b" }}>
         {children}
       </body>

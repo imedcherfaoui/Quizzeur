@@ -22,6 +22,7 @@ module.exports = {
       },
       fontFamily: {
         pixelify: ["'Pixelify Sans'", "sans-serif"],
+        rubik: ["'Rubik Pixels'", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

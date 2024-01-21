@@ -1,0 +1,12 @@
+@keyframes danceAnimation {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px); /* Adjust the distance you want to move */
+  }
+}
+
+.dance {
+  animation: danceAnimation 2s infinite; /* Adjust the duration as needed */
+}
