@@ -12,80 +12,59 @@ import Footer from "./footer";
 export default function Home() {
   const initialQuestions = [
     {
-      question: "Quel est le plus grand océan de la planète ?",
-      answers: ["Atlantique", "Indien", "Arctique", "Pacifique"],
-      correctAnswer: "Pacifique",
-      image: "/questionsImages/ocean.jpeg",
+      question: "Quel est le plus grand animal terrestre ?",
+      answers: ["Éléphant", "Girafe", "Hippopotame", "Rhinocéros"],
+      correctAnswer: "Éléphant",
+      image: "/questionsImages/elephant.png",
     },
     {
-      question: "Combien de continents y a-t-il sur Terre ?",
-      answers: ["3", "5", "7", "9"],
-      correctAnswer: "7",
-      image: "/questionsImages/terre.jpeg",
+      question: "Combien de pattes a une araignée ?",
+      answers: ["4", "6", "8", "10"],
+      correctAnswer: "8",
+      image: "/questionsImages/araignee.png",
     },
     {
-      question: "Quelle est la capitale de l'Italie ?",
-      answers: ["Paris", "Madrid", "Rome", "Berlin"],
-      correctAnswer: "Rome",
-      image: "/questionsImages/italie.jpeg",
+      question: "Quel est le plus grand prédateur marin ?",
+      answers: ["Requin blanc", "Orque", "Baleine", "Méduse"],
+      correctAnswer: "Orque",
+      image: "/questionsImages/orque.png",
     },
     {
-      question: "Qui a écrit 'Roméo et Juliette' ?",
-      answers: ["Victor Hugo", "William Shakespeare", "Molière", "Jane Austen"],
-      correctAnswer: "William Shakespeare",
-      image: "/questionsImages/romeojuliette.jpeg",
+      question:
+        "Quel animal est connu pour changer de couleur selon son environnement ?",
+      answers: ["Caméléon", "Panthère", "Poisson-clown", "Papillon"],
+      correctAnswer: "Caméléon",
+      image: "/questionsImages/cameleon.png",
     },
     {
-      question: "Quel est le symbole chimique de l'or ?",
-      answers: ["Au", "Ag", "Fe", "Cu"],
-      correctAnswer: "Au",
-      image: "/questionsImages/or.png",
+      question: "Quel est le plus grand oiseau du monde ?",
+      answers: ["Aigle", "Autruche", "Pingouin", "Condor"],
+      correctAnswer: "Autruche",
+      image: "/questionsImages/autruche.png",
     },
     {
-      question: "Quel est le plus grand désert du monde ?",
-      answers: [
-        "Désert du Sahara",
-        "Désert de Gobi",
-        "Désert d'Atacama",
-        "Désert de Kalahari",
-      ],
-      correctAnswer: "Désert du Sahara",
-      image: "/questionsImages/desert.jpeg",
+      question: "Quel animal est le plus rapide sur terre ?",
+      answers: ["Guepard", "Lion", "Zèbre", "Éléphant"],
+      correctAnswer: "Guepard",
+      image: "/questionsImages/guepard.png",
     },
     {
-      question: "Quel est le plus long fleuve du monde ?",
-      answers: ["Nil", "Amazone", "Mississippi", "Yangtsé"],
-      correctAnswer: "Nil",
-      image: "/questionsImages/fleuve.jpg",
+      question: "Quel serpent est connu pour sa capacité à cracher du venin ?",
+      answers: ["Python", "Cobra", "Anaconda", "Vipère"],
+      correctAnswer: "Cobra",
+      image: "/questionsImages/cobra.png",
     },
     {
-      question: "Qui a peint 'La Joconde' ?",
-      answers: [
-        "Vincent van Gogh",
-        "Leonardo da Vinci",
-        "Pablo Picasso",
-        "Claude Monet",
-      ],
-      correctAnswer: "Leonardo da Vinci",
-      image: "/questionsImages/joconde.jpeg",
-    },
-    {
-      question: "Quel est le plus haut sommet du monde ?",
-      answers: ["Mont Everest", "Mont Blanc", "K2", "Matterhorn"],
-      correctAnswer: "Mont Everest",
-      image: "/questionsImages/sommet.jpeg",
-    },
-    {
-      question: "Quel est le pays le plus peuplé du monde ?",
-      answers: ["Chine", "Inde", "États-Unis", "Brésil"],
-      correctAnswer: "Chine",
-      image: "/questionsImages/peuple.jpeg",
+      question: "Quel est l'oiseau emblème des États-Unis ?",
+      answers: ["Corbeau", "Hibou", "Aigle", "Colibri"],
+      correctAnswer: "Aigle",
+      image: "/questionsImages/aigle.png",
     },
   ];
 
   const [questions, setQuestions] = useState(initialQuestions);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [timer, setTimer] = useState(8);
+  const [timer, setTimer] = useState(5);
   const [highlightCorrectAnswer, setHighlightCorrectAnswer] = useState(false);
   const [quizEnded, setQuizEnded] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -95,12 +74,12 @@ export default function Home() {
   const [playClockSound] = useSound(clockSound);
 
   const handleStartQuiz = () => {
-    setTimer(8);
+    setTimer(5);
     setQuizStarted(true);
   };
 
   const handleNextQuestion = () => {
-    setTimer(8);
+    setTimer(5);
     setHighlightCorrectAnswer(false);
     setSelectedAnswer(null);
     if (currentQuestion < questions.length - 1) {
@@ -114,14 +93,14 @@ export default function Home() {
   const handlePreviousQuestion = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
-      setTimer(8); // Reset timer to 8 seconds
+      setTimer(5); // Reset timer to 5 seconds
     }
   };
 
   const handleRestartQuiz = () => {
     setQuestions(initialQuestions);
     setCurrentQuestion(0);
-    setTimer(8);
+    setTimer(5);
     setHighlightCorrectAnswer(false);
     setQuizEnded(false);
     setSelectedAnswer(null);
@@ -157,7 +136,7 @@ export default function Home() {
       interval = setInterval(() => {
         setTimer((prevTimer) => {
           // Play clock sound when timer reaches 3 seconds
-          if (prevTimer === 4) {
+          if (prevTimer === 3) {
             // Assuming you have a playClockSound function
             playClockSound();
           }
@@ -182,8 +161,8 @@ export default function Home() {
   };
 
   return (
-    <div className="font-pixelify bg-hero h-screen bg-cover bg-center flex justify-center">
-      <div className="mt-1 lg:mt-20 mx-10 max-w-4xl w-full">
+    <div className="font-pixelify bg-hero bg-cover h-fit bg-center flex justify-center">
+      <div className="mt-1 lg:mt-20 mx-10 max-w-4xl w-10/12 md:w-full">
         {!quizStarted && (
           <div className="flex justify-center items-center h-screen">
             <Button
@@ -204,20 +183,18 @@ export default function Home() {
               } ${quizEnded ? "animate-none" : ""}`}
             >
               {/* Question */}
-              <div className="flex justify-center items-center mb-4 lg:mb-20">
-                <div className="text-7xl rounded-full bg-indigo-800 text-white font-bold p-10 w-6 h-6 lg:h-8 flex items-center justify-center mr-3 lg:mr-5">
+              <div className="flex justify-center items-center h-28 mb-4 lg:mb-20">
+                <div className="text-3xl lg:text-7xl rounded-full bg-indigo-800 text-white font-bold p-6 lg:p-10 w-6 h-6 lg:h-8 flex items-center justify-center mr-3 lg:mr-5">
                   {index + 1}
                 </div>
-                <h3 className="font-rubik p-0 text-center text-2xl lg:text-4xl text-lime-400 lg:p-2 border-4 lg:border-6 border-indigo-800 rounded-3xl bg-indigo-950 bg-opacity-70">
+                <h3 className="font-rubik p-0 text-center text-xl lg:text-4xl text-lime-400 lg:p-2 border-4 lg:border-6 border-indigo-800 rounded-3xl bg-indigo-950 bg-opacity-70">
                   {question.question}
                 </h3>
               </div>
               {/* Image + Réponses */}
               <div className="flex flex-col lg:flex-row justify-between items-center">
                 {/* Image */}
-                <div
-                  className='border-4 lg:border-8 rounded-xl overflow-hidden mb-6 lg:mb-0'
-                >
+                <div className="border-4 lg:border-8 rounded-xl overflow-hidden mb-6 lg:mb-0">
                   <Image
                     src={question.image}
                     width={500}
@@ -274,11 +251,11 @@ export default function Home() {
               <div
                 className="h-full w-full absolute top-0 left-0 rounded-full"
                 style={{
-                  width: `${(timer / 8) * 100}%`,
+                  width: `${(timer / 5) * 100}%`,
                   background: `
         repeating-linear-gradient(135deg, ${
-          timer <= 3 ? "#E5484D" : "#30A46C"
-        } 0 10px, ${timer <= 3 ? "#72232D" : "#20573E"} 25px 0) 0/100%
+          timer <= 2 ? "#E5484D" : "#30A46C"
+        } 0 10px, ${timer <= 2 ? "#72232D" : "#20573E"} 25px 0) 0/100%
       `,
                 }}
               ></div>
